@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import styles from './page.module.css';
 
 export default function page() {
     const [cards, setCards] = useState([]);
@@ -11,8 +12,7 @@ export default function page() {
     const fetchCards = async () => {
         setLoading(true);
         try {
-            const { data } = await axios.get('/api/cards');
-            
+            const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}`);
             setCards(data);
         } catch (error) {
             console.error('Erro ao buscar cards:', error);
@@ -32,20 +32,23 @@ export default function page() {
     };
 
     return (
-        <div>
-            <h1>Cards</h1>
+        <div className={styles.container}>
+            <h1 className={styles.title}>⚔️ Arena dos Cards ⚔️</h1>
 
-            {loading && <p>Carregando...</p>}
+            {loading && <p className={styles.loading}>Carregando cartas...</p>}
 
-            <div>
+            <div className={styles.grid}>
                 {cards.map((card) => (
-                    <div key={card.id} onClick={() => handleCardClick(card)}>
-                        <h3>{card.name}</h3>
-                        <p>Tipo: {card.type}</p>
-                        <p>Custo de Elixir: {card.custo_elixir}</p>
-                        <div>
-                            <h4>Descrição:</h4>
-                            <p>{card.description}</p>
+                    <div key={card.id} className={styles.card} onClick={() => handleCardClick(card)}>
+                        <div className={styles.cardHeader}>
+                            <h3 className={styles.cardName}>{card.name}</h3>
+                            <div className={styles.elixirCost}>{card.custo_elixir}</div>
+                        </div>
+                        <div className={styles.cardBody}>
+                            <p className={styles.cardType}>{card.type}</p>
+                            <div className={styles.description}>
+                                <p>{card.description}</p>
+                            </div>
                         </div>
                     </div>
                 ))}

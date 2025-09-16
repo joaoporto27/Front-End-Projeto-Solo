@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import styles from './page.module.css';
 
 export default function CardDetail({ params }) {
     const [card, setCard] = useState(null);
@@ -14,7 +15,7 @@ export default function CardDetail({ params }) {
         setLoading(true);
         setError(null);
         try {
-            const { data } = await axios.get(`/api/cards/${id}`);
+            const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/${id}`);
             setCard(data);
         } catch (error) {
             console.error('Erro ao buscar card:', error);
@@ -36,65 +37,73 @@ export default function CardDetail({ params }) {
 
     if (loading) {
         return (
-            <div>
-                <p>Carregando...</p>
+            <div className={styles.container}>
+                <p className={styles.loading}>Carregando carta...</p>
             </div>
         );
     }
 
     if (error || !card) {
         return (
-            <div>
-                <p>{error || 'Card não encontrado'}</p>
-                <button onClick={handleBackClick}>
-                    Voltar para Cards
+            <div className={styles.container}>
+                <p className={styles.error}>{error || 'Card não encontrado'}</p>
+                <button onClick={handleBackClick} className={styles.backButton}>
+                    Voltar para Arena
                 </button>
             </div>
         );
     }
 
     return (
-        <div>
-            <button onClick={handleBackClick}>
-                Voltar para Cards
+        <div className={styles.container}>
+            <button onClick={handleBackClick} className={styles.backButton}>
+                ⬅️ Voltar para Arena
             </button>
             
-            <div>
-                <h1>{card.name}</h1>
+            <div className={styles.cardDetail}>
+                <div className={styles.cardHeader}>
+                    <h1 className={styles.cardName}>{card.name}</h1>
+                    <div className={styles.elixirCost}>{card.custo_elixir}</div>
+                </div>
                 
-                <div>
-                    <div>
-                        <span>ID:</span>
-                        <span>{card.id}</span>
-                    </div>
+                <div className={styles.cardBody}>
+                    <div className={styles.cardType}>{card.type}</div>
                     
-                    <div>
-                        <span>Tipo:</span>
-                        <span>{card.type}</span>
+                    <div className={styles.statsGrid}>
+                        <div className={styles.statItem}>
+                            <span className={styles.statLabel}>ID:</span>
+                            <span className={styles.statValue}>{card.id}</span>
+                        </div>
+                        
+                        <div className={styles.statItem}>
+                            <span className={styles.statLabel}>Tipo:</span>
+                            <span className={styles.statValue}>{card.type}</span>
+                        </div>
+                        
+                        <div className={styles.statItem}>
+                            <span className={styles.statLabel}>Custo de Elixir:</span>
+                            <span className={styles.statValue}>{card.custo_elixir}</span>
+                        </div>
                     </div>
-                    
-                    <div>
-                        <span>Custo de Elixir:</span>
-                        <span>{card.custo_elixir}</span>
-                    </div>
-                </div>
 
-                <div>
-                    <h2>Descrição</h2>
-                    <p>{card.description}</p>
-                </div>
-
-                {card.image_url && (
-                    <div>
-                        <img 
-                            src={card.image_url} 
-                            alt={card.name}
-                            onError={(e) => {
-                                e.target.style.display = 'none';
-                            }}
-                        />
+                    <div className={styles.descriptionSection}>
+                        <h2 className={styles.descriptionTitle}>⚔️ Descrição da Carta</h2>
+                        <p className={styles.description}>{card.description}</p>
                     </div>
-                )}
+
+                    {card.image_url && (
+                        <div className={styles.imageSection}>
+                            <img 
+                                src={card.image_url} 
+                                alt={card.name}
+                                className={styles.cardImage}
+                                onError={(e) => {
+                                    e.target.style.display = 'none';
+                                }}
+                            />
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );

@@ -1,0 +1,294 @@
+/* Clash Royale Card Detail Theme */
+.container {
+    min-height: 100vh;
+    padding: 20px;
+    background: linear-gradient(135deg, #1a2332 0%, #2d3e55 50%, #1a2332 100%);
+    background-attachment: fixed;
+    position: relative;
+}
+
+.container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(30, 144, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.loading {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #ffd700;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    animation: pulse 1.5s ease-in-out infinite;
+    margin-top: 100px;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.error {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #ff4757;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin-top: 100px;
+    background: rgba(255, 71, 87, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #ff4757;
+}
+
+.backButton {
+    background: linear-gradient(135deg, #00d4aa 0%, #007991 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
+    border: 2px solid #ffd700;
+}
+
+.backButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 212, 170, 0.4);
+    background: linear-gradient(135deg, #007991 0%, #00d4aa 100%);
+}
+
+.cardDetail {
+    max-width: 600px;
+    margin: 0 auto;
+    background: linear-gradient(145deg, #2a3f5f 0%, #1e2936 100%);
+    border-radius: 20px;
+    border: 3px solid #ffd700;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(255, 215, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+.cardDetail::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(255, 107, 53, 0.1), rgba(157, 78, 221, 0.1), rgba(0, 212, 170, 0.1));
+    animation: shimmer 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    border-bottom: 3px solid rgba(255, 215, 0, 0.4);
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
+}
+
+.cardName {
+    color: #ffd700;
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-shadow: 
+        3px 3px 0 #ff6b35,
+        6px 6px 10px rgba(0, 0, 0, 0.8);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 
+            3px 3px 0 #ff6b35,
+            6px 6px 10px rgba(0, 0, 0, 0.8),
+            0 0 20px rgba(255, 215, 0, 0.6);
+    }
+    to {
+        text-shadow: 
+            3px 3px 0 #ff6b35,
+            6px 6px 10px rgba(0, 0, 0, 0.8),
+            0 0 30px rgba(255, 215, 0, 0.9);
+    }
+}
+
+.elixirCost {
+    background: linear-gradient(135deg, #e91e63 0%, #ad1457 100%);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.8rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    border: 4px solid #ffd700;
+    box-shadow: 
+        0 6px 15px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.cardBody {
+    padding: 25px 30px 30px;
+}
+
+.cardType {
+    background: linear-gradient(90deg, #9d4edd 0%, #5a189a 100%);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: inline-block;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 10px rgba(157, 78, 221, 0.4);
+    border: 2px solid #ffd700;
+}
+
+.statsGrid {
+    display: grid;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.statItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    border-left: 5px solid #ffd700;
+    transition: all 0.3s ease;
+}
+
+.statItem:hover {
+    background: rgba(0, 0, 0, 0.5);
+    transform: translateX(5px);
+}
+
+.statLabel {
+    font-weight: 700;
+    color: #ffd700;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.statValue {
+    color: #e0e6ed;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.descriptionSection {
+    margin-top: 25px;
+}
+
+.descriptionTitle {
+    color: #ffd700;
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.description {
+    color: #e0e6ed;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%);
+    padding: 20px;
+    border-radius: 15px;
+    border-left: 5px solid #ffd700;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.imageSection {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.cardImage {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 15px;
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(255, 215, 0, 0.3);
+    border: 3px solid #ffd700;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .cardDetail {
+        margin: 0 10px;
+    }
+    
+    .cardHeader {
+        padding: 20px 25px;
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .cardName {
+        font-size: 1.8rem;
+    }
+    
+    .cardBody {
+        padding: 20px 25px 25px;
+    }
+    
+    .backButton {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}

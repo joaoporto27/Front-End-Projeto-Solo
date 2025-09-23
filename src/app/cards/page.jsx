@@ -41,6 +41,7 @@ export default function page() {
                 {cards.map((card) => (
                     <div key={card.id} className={styles.card} onClick={() => handleCardClick(card)}>
                         <div className={styles.cardHeader}>
+                            
                             <h3 className={styles.cardName}>{card.name}</h3>
                             <div className={styles.elixirCost}>{card.custo_elixir}</div>
                         </div>
@@ -49,6 +50,9 @@ export default function page() {
                             <div className={styles.description}>
                                 <p>{card.description}</p>
                             </div>
+                        </div>
+                        <div className={styles.cardImage}>
+                            <img src={card.image_url} alt={card.name} className={styles.image} />
                         </div>
                     </div>
                 ))}

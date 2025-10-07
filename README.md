@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Projeto Front-End
 
-## Getting Started
+## Como executar o projeto
 
-First, run the development server:
+### 1. Criar pasta do projeto
+Abra o Terminal e digite os seguintes comandos
+mkdir Front-End-Projeto-Solo
+cd Front-End-Projeto-Solo
+code .
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 2. Clone o projeto do github
+Já dentro do vscode abra o terminal (command prompt) e digite 
+git clone "link do repositório" como é para clonar esse projeto faça:
+git clone https://github.com/joaoporto27/Front-End-Projeto-Solo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Inicializar projeto Node.js
+Ainda dentro do terminal instale o Node.Js para a inicialização do projeto
+npm install
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 4. Configurar variáveis de ambiente(.env)
+Crie o arquivo .env.local com a váriavel abaixo para integrar ao seu back-end
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+NEXT_PUBLIC_API_URL=http://localhost:4000/api/cards
 
-## Learn More
+### 5. Iniciar o servidor
+Agora com tudo instalado é só utilizar o npm run dev no terminal para rodar o servidor
 
-To learn more about Next.js, take a look at the following resources:
+### 8. Servidor funcionado
+Se tudo ocorreu bem aparecerá a seguinte mensagem no seu terminal:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+O servidor estará rodando em `http://localhost:3000` ou outra porta
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+E é só aproveitar a API

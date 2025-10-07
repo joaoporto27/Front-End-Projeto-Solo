@@ -267,7 +267,6 @@
     transform: translateY(0);
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .header {
         padding: 15px 20px;

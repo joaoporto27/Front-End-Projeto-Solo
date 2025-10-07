@@ -99,7 +99,7 @@ export default function page() {
 
                         <div className={styles.elixirCost}>{card.custo_elixir}</div>
                         <div className={styles.cardImage}>
-                            <img src={card.image_url} alt={card.name} className={styles.image} />
+                            <img src={card.image_url ? card.image_url : "/img/imagemIndisponivel.jpg"} alt={card.name} className={styles.image} />
                         </div>
                     </div>
                 ))}

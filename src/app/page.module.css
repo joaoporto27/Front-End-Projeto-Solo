@@ -36,8 +36,6 @@
         -1px -1px 0px #cc7700;
     transition: all 0.2s ease;
     
-    /* Efeito de brilho interno */
-    background-clip: padding-box;
 }
 
 .couche1::before {

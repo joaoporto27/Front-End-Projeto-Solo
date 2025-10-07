@@ -1,0 +1,228 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: black;
+    position: relative;
+    overflow: hidden;
+}
+
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    animation: float 8s infinite linear;
+}
+
+.particle1 {
+    width: 5px;
+    height: 5px;
+    background: #ffffff;
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 12s;
+}
+
+.particle2 {
+     width: 5px;
+    height: 5px;
+    background: #ffffff;
+    left: 20%;
+    animation-delay: 0s;
+    animation-duration: 10s;
+}
+
+.particle3 {
+    width: 5px;
+    height: 5px;
+    background: #ffffff;
+    left: 35%;
+    animation-delay: 0s;
+    animation-duration: 14s;
+}
+
+.particle4 {
+     width: 5px;
+    height: 5px;
+    background: #ffffff;
+    left: 50%;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+.particle5 {
+     width: 5px;
+    height: 5px;
+    background: #ffffff;
+    left: 65%;
+    animation-delay: 0s;
+    animation-duration: 13s;
+}
+
+.particle6 {
+    width: 5px;
+    height: 5px;
+    background: #ffffff;
+    left: 80%;
+    animation-delay: 0s;
+    animation-duration: 9s;
+}
+
+.particle7 {
+    width: 5px;
+    height: 5px;
+    background: #ffffff;
+    left: 15%;
+    animation-delay: 0s;
+    animation-duration: 15s;
+}
+
+.particle8 {
+    width: 5px;
+    height: 5px;
+    background: #ffffff;
+    left: 90%;
+    animation-delay: 0s;
+    animation-duration: 12s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) scale(1);
+        opacity: 0;
+    }
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem;
+}
+
+.headerLeft {
+    display: flex;
+}
+
+.headerRight {
+    display: flex;
+    gap: 30px;
+}
+
+.headerLink {
+    color: #ffd700;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.headerLink:hover {
+    background: linear-gradient(135deg, #ffd700, #ff6b35);
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+
+.card {
+    width: 90% ;
+    max-width: 600px ;
+    margin: 0 auto ;
+    padding: 40px ;
+    background-color: rgba(255, 255, 255, 0.85) ;
+    backdrop-filter: blur(10px) ;
+    border: 1px solid rgba(255, 255, 255, 0.3) ;
+    border-radius: 20px ;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3) ;
+    position: relative ;
+    z-index: 1 ;
+    text-align: center ;
+}
+
+.imageProfile {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.image {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.description {
+    text-align: center;
+    padding: 20px 0;
+    color: #333;
+}
+
+.description h2 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #222;
+}
+
+.description h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #444;
+}
+
+.description h5 {
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 95% ;
+        padding: 30px 20px ;
+    }
+    
+    .image {
+        height: 150px;
+        width: 150px;
+    }
+    
+    .description h2 {
+        font-size: 1.5rem;
+    }
+    
+    .description h3 {
+        font-size: 1.1rem;
+    }
+}

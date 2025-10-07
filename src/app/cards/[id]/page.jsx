@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import styles from './page.module.css';
+import Link from 'next/link';
 
 export default function CardDetail({ params }) {
     const [card, setCard] = useState(null);
@@ -31,9 +32,6 @@ export default function CardDetail({ params }) {
         }
     }, [id]);
 
-    const handleBackClick = () => {
-        router.push('/cards');
-    };
 
     if (loading) {
         return (
@@ -47,18 +45,36 @@ export default function CardDetail({ params }) {
         return (
             <div className={styles.container}>
                 <p className={styles.error}>{error || 'Card não encontrado'}</p>
-                <button onClick={handleBackClick} className={styles.backButton}>
-                    Voltar para Arena
-                </button>
+                 <Link href="/cards" className={styles.backButton}>
+                ⬅️ Voltar para Arena
+            </Link>
             </div>
         );
     }
 
     return (
         <div className={styles.container}>
-            <button onClick={handleBackClick} className={styles.backButton}>
+
+            <header className={styles.header}>
+                <div className={styles.headerLeft}>
+                    <Link href="/" className={styles.headerLink}>
+                        Home
+                    </Link>
+                </div>
+                <div className={styles.headerRight}>
+                    <Link href="/perfil" className={styles.headerLink}>
+                        Sobre Mim
+                    </Link>
+                    <Link href="/contato" className={styles.headerLink}>
+                        Contato
+                    </Link>
+                </div>
+            </header>
+            <div className={styles.backButtonDiv}>
+            <Link href="/cards" className={styles.backButton}>
                 ⬅️ Voltar para Arena
-            </button>
+            </Link>
+            </div>
             
             <div className={styles.cardDetail}>
                 <div className={styles.cardHeader}>

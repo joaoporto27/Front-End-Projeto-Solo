@@ -52,13 +52,13 @@ export default function ProfilePage() {
                 </div>
                 <div className={styles.description}>
                     <h2>João Vitor Porto Sales</h2>
-                    <h3>2TDS1</h3>
-                    <h3>Front-End, Avaliação</h3>
+                    <h3>TDS1</h3>
+                    <h3>Front-End, Projeto final solo</h3>
                     <h3>
                         Esta API tem o propósito de mostrar a implementação do front-end com
-                        back-end, para isso irei utilizar as tabelas Usuários e Posts.
+                        back-end, para isso irei utilizar as cartas de Clash Royale para fazer essa api completa com integração no front-end.
                     </h3>
-                    <h5>Docente: Felipe</h5>
+                    <h5>Docente: Felipe Santos</h5>
                 </div>
             </Card>
         </div>

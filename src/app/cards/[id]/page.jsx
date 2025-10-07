@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useRouter } from 'next/navigation';
 import styles from './page.module.css';
 import Link from 'next/link';
 
@@ -9,7 +8,6 @@ export default function CardDetail({ params }) {
     const [card, setCard] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const router = useRouter();
     const { id } = params;
 
     const fetchCard = async () => {
